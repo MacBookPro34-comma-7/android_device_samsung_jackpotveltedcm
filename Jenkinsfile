@@ -11,6 +11,7 @@ pipeline {
 	stage('Build') {
             steps {
 		dir("twrp") {
+		    sh 'rm -rf bootable/recovery && git clone https://github.com/TeamWin/android_bootable_recovery -b android-9.0 bootable/recovery'
                     sh 'export ALLOW_MISSING_DEPENDENCIES=true'
                     sh 'source build/envsetup.sh && lunch omni_jackpotveltedcm-eng && make -j$(nproc --all) recoveryimage'
 		}
