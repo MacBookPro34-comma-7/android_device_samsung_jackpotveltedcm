@@ -5,13 +5,15 @@ pipeline {
     stages {
         stage('Prepare') {
             steps {
-                sh 'git clone https://github.com/MacBookPro34-comma-7/android_device_samsung_jackpotveltedcm.git device/samsung/jackpotveltedcm'
+                sh 'git clone https://github.com/MacBookPro34-comma-7/android_device_samsung_jackpotveltedcm.git twrp/device/samsung/jackpotveltedcm'
             }
         }
 	stage('Build') {
             steps {
-                sh 'export ALLOW_MISSING_DEPENDENCIES=true'
-                sh 'source build/envsetup.sh && lunch omni_jackpotveltedcm-eng && make -j$(nproc --all) recoveryimage'
+		dir("twrp") {
+                    sh 'export ALLOW_MISSING_DEPENDENCIES=true'
+                    sh 'source build/envsetup.sh && lunch omni_jackpotveltedcm-eng && make -j$(nproc --all) recoveryimage'
+		}
             }
         }
 	stage('Deploy') {
