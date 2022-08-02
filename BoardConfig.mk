@@ -51,6 +51,7 @@ TARGET_KERNEL_SOURCE := kernel/samsung/jackpotveltedcm
 TARGET_KERNEL_CONFIG := exynos7885-jackpotltejpn_defconfig
 TARGET_CUSTOM_DTBTOOL := dtbhtoolExynos
 
+BOARD_CUSTOM_BOOTIMG_MK := $(DEVICE_PATH)/mkbootimg.mk
 BOARD_KERNEL_CMDLINE := androidboot.selinux=permissive
 BOARD_KERNEL_IMAGE_NAME := Image
 BOARD_KERNEL_SEPARATED_DT := true
