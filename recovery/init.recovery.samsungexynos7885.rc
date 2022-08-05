@@ -9,9 +9,6 @@ on init
     mkdir /dev/usb-ffs 0770 shell shell
     mkdir /dev/usb-ffs/adb 0770 shell shell
     mount functionfs adb /dev/usb-ffs/adb uid=2000,gid=2000
-    
-    # for debug purpose
-    start loggy
 
 on boot
     write /sys/kernel/config/usb_gadget/g1/strings/0x409/serialnumber ${ro.serialno}
@@ -23,6 +20,11 @@ on boot
     symlink /sys/kernel/config/usb_gadget/g1/functions/ffs.adb /sys/kernel/config/usb_gadget/g1/configs/c.1/ffs.adb
     setprop sys.usb.configfs 1
     setprop sys.usb.controller 13600000.dwc3
+
+    # for debug purpose
+    service loggy /sbin/loggy /proc/kmsg /proc/last_kmsg
+        seclabel u:object_r:loggy_exec:s0
+        oneshot
 
 on property:sys.usb.ffs.ready=1 && property:sys.usb.config=mtp,adb
     write /sys/class/android_usb/android0/enable 0
@@ -43,9 +45,3 @@ on property:sys.usb.ffs.ready=1 && property:sys.usb.config=adb
     write /sys/kernel/config/usb_gadget/g1/UDC "13600000.dwc3"
     write /sys/class/android_usb/android0/enable 1
     setprop sys.usb.state ${sys.usb.config}
-
-service loggy /sbin/loggy
-    class core
-    seclabel u:object_r:loggy_exec:s0
-    user root
-    oneshot

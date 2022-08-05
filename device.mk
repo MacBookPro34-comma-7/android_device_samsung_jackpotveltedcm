@@ -22,7 +22,7 @@ PRODUCT_COPY_FILES += \
     $(DEVICE_PATH)/recovery/atrace.rc:$(TARGET_COPY_OUT_RECOVERY)/root/atrace.rc \
     $(DEVICE_PATH)/recovery/ueventd.rc:$(TARGET_COPY_OUT_RECOVERY)/root/ueventd.rc \
     $(DEVICE_PATH)/recovery/ueventd.samsungexynos7885.rc:$(TARGET_COPY_OUT_RECOVERY)/root/ueventd.samsungexynos7885.rc \
-    $(DEVICE_PATH)/recovery/init.recovery.samsungexynos7885.rc:$(TARGET_COPY_OUT_RECOVERY)/root/init.recovery.samsungexynos7885.rc \
+    $(DEVICE_PATH)/recovery/init.recovery.samsungexynos7885.rc:$(TARGET_COPY_OUT_RECOVERY)/root/init.recovery.samsungexynos7885.rc
 
 # Graphics
 TARGET_SCREEN_HEIGHT := 2220
