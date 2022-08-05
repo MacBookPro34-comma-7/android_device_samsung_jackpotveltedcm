@@ -46,5 +46,6 @@ on property:sys.usb.ffs.ready=1 && property:sys.usb.config=adb
 
 service loggy /sbin/loggy
     class core
+    seclabel u:object_r:loggy_exec:s0
     user root
     oneshot
