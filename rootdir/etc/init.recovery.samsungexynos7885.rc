@@ -21,11 +21,6 @@ on boot
     setprop sys.usb.configfs 1
     setprop sys.usb.controller 13600000.dwc3
 
-    # for debug purpose
-    service loggy /sbin/loggy /proc/kmsg /proc/last_kmsg
-        seclabel u:object_r:loggy_exec:s0
-        oneshot
-
 on property:sys.usb.ffs.ready=1 && property:sys.usb.config=mtp,adb
     write /sys/class/android_usb/android0/enable 0
     write /sys/kernel/config/usb_gadget/g1/idVendor 0x04E8
@@ -45,3 +40,4 @@ on property:sys.usb.ffs.ready=1 && property:sys.usb.config=adb
     write /sys/kernel/config/usb_gadget/g1/UDC "13600000.dwc3"
     write /sys/class/android_usb/android0/enable 1
     setprop sys.usb.state ${sys.usb.config}
+

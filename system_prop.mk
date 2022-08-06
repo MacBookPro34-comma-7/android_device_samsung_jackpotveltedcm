@@ -86,3 +86,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
     persist.sys.dalvik.multithread=true \
     persist.sys.dalvik.hyperthreading=true
 
+# Lineage OTA
+PRODUCT_PROPERTY_OVERRIDES += \
+    lineage.updater.uri=https://freetier.hurrhnn.xyz/api/v1/jackpotveltedcm/unofficial/

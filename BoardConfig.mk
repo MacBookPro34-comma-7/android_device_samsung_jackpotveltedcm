@@ -6,26 +6,8 @@
 
 DEVICE_PATH := device/samsung/jackpotveltedcm
 
-BUILD_BROKEN_DUP_RULES := true
-
-# For building with minimal manifest
-ALLOW_MISSING_DEPENDENCIES := true
-
-# Architecture
-TARGET_ARCH := arm64
-TARGET_ARCH_VARIANT := armv8-a
-TARGET_CPU_ABI := arm64-v8a
-TARGET_CPU_ABI2 :=
-TARGET_CPU_VARIANT := cortex-a53
-
-TARGET_2ND_ARCH := arm
-TARGET_2ND_ARCH_VARIANT := armv8-a
-TARGET_2ND_CPU_ABI := armeabi-v7a
-TARGET_2ND_CPU_ABI2 := armeabi
-TARGET_2ND_CPU_VARIANT := cortex-a53
-
-# Binder
-TARGET_USES_64_BIT_BINDER := true
+# Inherit from common
+include device/samsung/universal7885-common/BoardConfigCommon.mk
 
 # Assert
 TARGET_OTA_ASSERT_DEVICE := jackpotveltedcm
@@ -33,101 +15,18 @@ TARGET_OTA_ASSERT_DEVICE := jackpotveltedcm
 # Bootloader
 TARGET_BOOTLOADER_BOARD_NAME := exynos7885
 
-# File systems
-BOARD_HAS_LARGE_FILESYSTEM := true
-BOARD_SYSTEMIMAGE_PARTITION_TYPE := ext4
-BOARD_USERDATAIMAGE_FILE_SYSTEM_TYPE := ext4
-TARGET_USERIMAGES_USE_EXT4 := true
-TARGET_USERIMAGES_USE_F2FS := true
-
-# Firmware
-TARGET_NO_BOOTLOADER := true
-TARGET_NO_RADIOIMAGE := true
-TARGET_NO_RECOVERY   := false
-TARGET_NO_KERNEL     := false
+# Bluetooth
+BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := $(DEVICE_PATH)/include/bluetooth
 
 # Kernel
-TARGET_KERNEL_ARCH := arm64
-TARGET_KERNEL_HEADER_ARCH := arm64
-TARGET_KERNEL_SOURCE := kernel/samsung/jackpotlte
-TARGET_CUSTOM_DTBTOOL := dtbhtoolExynos
+BOARD_BOOT_HEADER_NAME := SRPRE09B001RU
+TARGET_KERNEL_SOURCE := kernel/samsung/universal7885
 TARGET_KERNEL_CONFIG := exynos7885-jackpotltejpn_defconfig
 
-BOARD_KERNEL_CMDLINE := loop.max_part=7
-BOARD_BOOT_HEADER_NAME := SRPRE09B001RU
-BOARD_CUSTOM_BOOTIMG := true
-BOARD_CUSTOM_BOOTIMG_MK := $(DEVICE_PATH)/mkbootimg.mk
-BOARD_KERNEL_BASE := 0x10000000
-BOARD_KERNEL_PAGESIZE := 2048
-BOARD_KERNEL_OFFSET := 0x00008000
-BOARD_RAMDISK_OFFSET := 0x01000000
-BOARD_SECOND_OFFSET := 0x00f00000
-BOARD_KERNEL_TAGS_OFFSET := 0x00000100
-BOARD_MKBOOTIMG_ARGS += --kernel_offset $(BOARD_KERNEL_OFFSET)
-BOARD_MKBOOTIMG_ARGS += --ramdisk_offset $(BOARD_RAMDISK_OFFSET)
-BOARD_MKBOOTIMG_ARGS += --second_offset $(BOARD_SECOND_OFFSET)
-BOARD_MKBOOTIMG_ARGS += --tags_offset $(BOARD_KERNEL_TAGS_OFFSET)
-BOARD_FLASH_BLOCK_SIZE := 4096 # blockdev --getbsz /dev/block/mmcblk0p9
-BOARD_KERNEL_IMAGE_NAME := Image
-BOARD_KERNEL_SEPARATED_DT := true
-
-# Device Tree
-BOARD_USES_DT := true
-
-# Partitions - Recovery
-BOARD_RECOVERYIMAGE_PARTITION_SIZE := 39845888
-
 # Partitions - Vendor
-BOARD_VENDOR := samsung
-TARGET_COPY_OUT_VENDOR := system/vendor
-
-# Platform
-BOARD_VENDOR := samsung
-TARGET_BOARD_PLATFORM := exynos5
-TARGET_SLSI_VARIANT := bsp
-TARGET_BOARD_PLATFORM_GPU := mali-g71
-TARGET_SOC := exynos7885
-
-# Root extra folders
-BOARD_ROOT_EXTRA_FOLDERS += /efs /cpefs
-TARGET_FS_CONFIG_GEN := $(DEVICE_PATH)/config.fs
+BOARD_VENDORIMAGE_PARTITION_SIZE := 520093696
+TARGET_COPY_OUT_VENDOR := vendor
 
 # Recovery
-BOARD_HAS_DOWNLOAD_MODE := true
-TARGET_RECOVERY_PIXEL_FORMAT := "ABGR_8888"
-TARGET_RECOVERY_FSTAB := $(DEVICE_PATH)/recovery/etc/recovery.fstab
-TARGET_RECOVERY_BUILD_LOGGY := false
-LZMA_RAMDISK_TARGETS := recovery
+TARGET_RECOVERY_FSTAB := $(DEVICE_PATH)/rootdir/etc/fstab.exynos7885
 
-# TWRP Configuration
-RECOVERY_VARIANT := twrp
-TW_THEME := portrait_hdpi
-TW_INPUT_BLACKLIST := "hbtp_vm"
-TW_BRIGHTNESS_PATH := /sys/class/backlight/panel/brightness
-TW_MAX_BRIGHTNESS := 255
-TW_DEFAULT_BRIGHTNESS := 162
-TW_NO_REBOOT_BOOTLOADER := true
-TW_INCLUDE_CRYPTO := true
-TW_INCLUDE_FBE := true
-TW_INCLUDE_NTFS_3G := true
-TW_EXCLUDE_SUPERSU := true
-TW_INCLUDE_FUSE_EXFAT := true
-TW_EXCLUDE_TWRPAPP := true
-TW_HAS_DOWNLOAD_MODE := true
-TW_INCLUDE_FB2PNG := true
-TW_DEFAULT_LANGUAGE := en
-TW_EXTRA_LANGUAGES := true
-TW_USE_NEW_MINADBD := true
-RECOVERY_SDCARD_ON_DATA := true
-
-# Charger
-BOARD_CHARGING_MODE_BOOTING_LPM := /sys/class/power_supply/battery/batt_lp_charging
-BOARD_CHARGER_ENABLE_SUSPEND := true
-BOARD_CHARGER_SHOW_PERCENTAGE := true
-CHARGING_ENABLED_PATH := /sys/class/power_supply/battery/batt_lp_charging
-
-# DT2W
-TARGET_TAP_TO_WAKE_NODE := /sys/class/sec/tsp/dt2w_enable
-
-# SELinux Policies
-BOARD_SEPOLICY_DIRS := $(DEVICE_PATH)/sepolicy

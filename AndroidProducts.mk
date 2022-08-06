@@ -6,9 +6,9 @@
 #
 
 PRODUCT_MAKEFILES := \
-    $(LOCAL_DIR)/omni_jackpotveltedcm.mk
+    $(LOCAL_DIR)/lineage_jackpotveltedcm.mk
 
 COMMON_LUNCH_CHOICES := \
-    omni_jackpotveltedcm-user \
-    omni_jackpotveltedcm-userdebug \
-    omni_jackpotveltedcm-eng
+    lineage_jackpotveltedcm-user \
+    lineage_jackpotveltedcm-userdebug \
+    lineage_jackpotveltedcm-eng
