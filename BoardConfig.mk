@@ -49,7 +49,7 @@ TARGET_NO_KERNEL     := false
 # Kernel
 TARGET_KERNEL_ARCH := arm64
 TARGET_KERNEL_HEADER_ARCH := arm64
-TARGET_KERNEL_SOURCE := kernel/samsung/jackpotlte
+TARGET_KERNEL_SOURCE := kernel/samsung/universal7885
 TARGET_CUSTOM_DTBTOOL := dtbhtoolExynos
 TARGET_KERNEL_CONFIG := exynos7885-jackpotltejpn_defconfig
 

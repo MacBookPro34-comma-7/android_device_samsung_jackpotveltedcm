@@ -13,8 +13,8 @@ You may obtain a copy of the License at http://www.apache.org/licenses/LICENSE-2
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <manifest>
-  <project name="MacBookPro34-comma-7/android_device_samsung_jackpotveltedcm" path="device/samsung/jackpotveltedcm" remote="github" revision="lineage-18.1" />
-  <project name="MacBookPro34-comma-7/android_kernel_samsung_jackpotlte" path="kernel/samsung/jackpotlte" remote="github" revision="lineage-18.1" />
+  <project name="MacBookPro34-comma-7/android_device_samsung_jackpotveltedcm" path="device/samsung/jackpotveltedcm" remote="github" revision="twrp-9.0" />
+  <project name="MacBookPro34-comma-7/android_kernel_samsung_universal7885" path="kernel/samsung/universal7885" remote="github" revision="lineage-18.1" />
 </manifest>
 ```
 
