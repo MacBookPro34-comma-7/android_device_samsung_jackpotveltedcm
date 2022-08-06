@@ -17,7 +17,7 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base.mk)
 $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
 
 # Inherit from jackpotveltedcm device.
-$(call inherit-product, device/samsung/jackpotlte/device.mk)
+$(call inherit-product, device/samsung/jackpotveltedcm/device.mk)
 
 # Device identifier. This must come after all inclusions.
 PRODUCT_DEVICE := jackpotveltedcm
