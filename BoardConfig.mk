@@ -15,9 +15,6 @@ TARGET_OTA_ASSERT_DEVICE := jackpotveltedcm
 # Bootloader
 TARGET_BOOTLOADER_BOARD_NAME := exynos7885
 
-# Bluetooth
-BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := $(DEVICE_PATH)/include/bluetooth
-
 # Kernel
 BOARD_BOOT_HEADER_NAME := SRPRE09B001RU
 TARGET_KERNEL_SOURCE := kernel/samsung/universal7885
