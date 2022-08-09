@@ -27,3 +27,5 @@ TARGET_COPY_OUT_VENDOR := vendor
 # Recovery
 TARGET_RECOVERY_FSTAB := $(DEVICE_PATH)/rootdir/etc/fstab.exynos7885
 
+# SELinux Policies
+BOARD_SEPOLICY_DIRS += $(DEVICE_PATH)/sepolicy/vendor
